@@ -38,14 +38,15 @@ plt.xlabel("Años de experiencia")
 plt.ylabel("Salario")
 
 #Predicciones con datos nuevos
-prediccion = modelo.predict([[10]])
+prediccion = modelo.predict([[2]])
 print("Prediccion:", prediccion)
 
 #B0 y coeficiente
 print("Coeficiente:", modelo.coef_)
 print("Intercepto:", modelo.intercept_)
 
-
+salario = "modelo.intercept_ + modelo.coef_ * 2"
+print("Ecuacion de Regresion: salario = modelo.intercept_ + modelo.coef_ * 2")
 
 
 
