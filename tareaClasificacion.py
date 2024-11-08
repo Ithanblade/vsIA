@@ -4,7 +4,7 @@ from sklearn.metrics import accuracy_score,confusion_matrix
 import pandas as pd
 import matplotlib.pyplot as plt
 
-datos =pd.read_excel("./medicinas.xlsx")
+datos =pd.read_excel("./Datos/medicinas.xlsx")
 datos=datos.drop("Id",axis=1)
 print(datos.head())
 print(datos.describe())

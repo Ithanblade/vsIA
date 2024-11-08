@@ -4,7 +4,7 @@ from sklearn.metrics import mean_squared_error, r2_score
 import pandas as pd
 import matplotlib.pyplot as plt
 
-datos =pd.read_csv("Salary_Data1.csv")
+datos =pd.read_csv("./Datos/Salary_Data1.csv")
 print(datos.head())
 print(datos.describe())
 

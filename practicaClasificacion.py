@@ -5,7 +5,7 @@ from sklearn.metrics import accuracy_score,confusion_matrix
 import pandas as pd
 import matplotlib.pyplot as plt
 
-datos =pd.read_csv("./Iris.csv")
+datos =pd.read_csv("./Datos/Iris.csv")
 datos=datos.drop("Id",axis=1)
 print(datos.head())
 print(datos.describe())
