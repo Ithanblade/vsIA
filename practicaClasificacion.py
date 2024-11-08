@@ -45,11 +45,9 @@ plt.title('Matriz de confusion')
 plt.show()
 
 #Prediccion con datos nuevos
-#Longitud del sepalo 4.5, ancho del sepalo 3.2, longitud del petalo 1.6, ancho del petalo 0.3
 tipo_flor = modelo.predict([[4.5,3.2,1.6,0.3]])
 print(f"La flor 1 es de tipo: {tipo_flor}")
 
-#Longitud del sepalo 3, ancho del sepalo 2.2, longitud del petalo 2.5, ancho del petalo 0.5
 tipo_flor = modelo.predict([[3,2.2,2.5,0.5]])
 print(f"La flor 2 es de tipo: {tipo_flor}\n")
 
