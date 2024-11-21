@@ -7,7 +7,7 @@ from sklearn.metrics import silhouette_score
 import numpy as np
 
 #Leer archivo
-datos =pd.read_csv("./Datos/wine_cluster.csv")
+datos =pd.read_csv("./Datos/mall_customers.csv")
 print(datos.head())
 print(datos.describe())
 
@@ -16,7 +16,7 @@ print(datos.describe())
 #plt.show()
 
 #Caracteristicas
-x = datos[['Alcohol','Color_Intensity']]
+x = datos[['Age','Spending Score (1-100)']]
 
 #Normalizar los datos
 x = (x-x.mean())/x.std()
@@ -55,20 +55,35 @@ etiquetas = modelo.labels_
 centroides = modelo.cluster_centers_
 print(etiquetas)
 print(centroides)
-print(modelo.inertia_)
-silueta = silhouette_score(x,modelo.labels_)
-print(silueta)
+print("Inercia: ",modelo.inertia_)
+siluetaM = silhouette_score(x,modelo.labels_)
+print("Silueta: ",siluetaM)
 
 
 #Grafico de dispersion
-plt.scatter(x['Alcohol'],x['Color_Intensity'],cmap='Blues',label=etiquetas,c=etiquetas)
-plt.scatter(centroides[:,0],centroides[:,1],color='red',marker='x',label='centroides')
-plt.xlabel('Alcohol')
-plt.ylabel('Color Intensity')
+#Poner el nombre de las etiquetas
+grafica = plt.scatter(x['Age'],x['Spending Score (1-100)'],cmap='rainbow',label=etiquetas,c=etiquetas)
+plt.scatter(centroides[:,0],centroides[:,1],color='black',marker='x',label='centroides')
+plt.colorbar(grafica,label='Cluster')
+plt.ylabel('Spending Score (1-100)')
+plt.xlabel('Age')
 plt.show()
 
 #Nueva Prediccion
-X=np.array([[14,5]])
+#Prediccion 1
+X=np.array([[40,50]])
 X=(X-X.mean())/X.std()
-prediccion = modelo.predict(X)
-print(prediccion)
+prediccion1 = modelo.predict(X)
+print("Prediccion 1: ",prediccion1)
+
+#Prediccion 2
+X=np.array([[80,70]])
+X=(X-X.mean())/X.std()
+prediccion2 = modelo.predict(X)
+print("Prediccion 2: ",prediccion2)
+
+#Prediccion 3
+X=np.array([[20,10]])
+X=(X-X.mean())/X.std()
+prediccion3 = modelo.predict(X)
+print("Prediccion 3: ",prediccion3)
