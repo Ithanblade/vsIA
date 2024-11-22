@@ -25,7 +25,7 @@ x = (x-x.mean())/x.std()
 x = x.dropna()
 
 #Variables para la grafica de codo
-k_valores = range(2,10)
+k_valores = range(2,11)
 inercia = []
 siluetas = []
 for k in k_valores:
